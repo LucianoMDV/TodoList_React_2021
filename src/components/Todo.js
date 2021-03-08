@@ -1,18 +1,21 @@
 import React from "react";
 
-const Todo = () => {
+const Todo = (props) => {
+
+    const { todo } = props;
+
   return (
     <div className="card mt-2">
       <div className="card-body">
         <div className="row d-flex justify-content-end">
           <div className="col-auto">
-            <h3 className="card-title text-end">Titulo de la tarea</h3>
+            <h3 className="card-title text-end">{todo.title}</h3>
           </div>
           <div className="col-auto">
             <button className="btn btn-sm btn-outline-success">Terminar</button>
           </div>
         </div>
-        <p className="card-text text-end">Descripcion de la tarea</p>
+        <p className="card-text text-end">{todo.description}</p>
         <hr />
         <div className="d-flex gap-2">
           <div className="me-auto"></div>

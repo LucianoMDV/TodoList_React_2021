@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, todoDelete }) => {
   return (
     <div className="card mt-2">
       <div className="card-body">
@@ -19,7 +19,12 @@ const Todo = ({ todo }) => {
           <button className="btn btn-sm btn-outline-primary ml-auto">
             Editar
           </button>
-          <button className="btn btn-sm btn-outline-danger">Eliminar</button>
+          <button 
+            className="btn btn-sm btn-outline-danger"
+            onClick={() => todoDelete(todo.id)}
+          >
+              Eliminar
+          </button>
         </div>
       </div>
     </div>

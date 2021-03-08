@@ -1,9 +1,6 @@
 import React from "react";
 
-const Todo = (props) => {
-
-    const { todo } = props;
-
+const Todo = ({ todo }) => {
   return (
     <div className="card mt-2">
       <div className="card-body">

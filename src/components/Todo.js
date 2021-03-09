@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ todo, todoDelete }) => {
+const Todo = ({ todo, todoDelete, todoToogleCompleted }) => {
   return (
     <div className="card mt-2">
       <div className="card-body">
@@ -9,7 +9,12 @@ const Todo = ({ todo, todoDelete }) => {
             <h3 className="card-title text-end">{todo.title}</h3>
           </div>
           <div className="col-auto">
-            <button className="btn btn-sm btn-outline-success">Terminar</button>
+            <button 
+                className={`btn btn-sm ${todo.completed ? 'btn-outline-success': 'btn-success'}`}
+                onClick={() =>todoToogleCompleted(todo.id)}
+            >
+                {todo.completed ? 'Terminado': 'Terminar'}
+            </button>
           </div>
         </div>
         <p className="card-text text-end">{todo.description}</p>

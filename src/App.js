@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
@@ -21,19 +21,37 @@ const App = () => {
   const [todos, setTodos] = useState(initialTodos);
 
   const todoDelete = (todoId) => {
-    const changedTodos = todos.filter(todo => todo.id !== todoId);
+    const changedTodos = todos.filter((todo) => todo.id !== todoId);
 
     setTodos(changedTodos);
-  }
+  };
+
+  const todoToogleCompleted = (todoId) => {
+    const changedTodos = todos.map((todo) => {
+      const todoEdit = {
+        ...todo,
+        completed: !todo.completed,
+      };
+
+      if (todo.id === todoId) {
+        return todoEdit;
+      } else {
+        return todo;
+      }
+    });
+
+    setTodos(changedTodos);
+  };
 
   return (
     <div className="container mt-4">
       <div className="row">
         <div className="col-8">
           <TodoList 
-            todos={todos}
+            todos={todos} 
             todoDelete={todoDelete}
-          />
+            todoToogleCompleted={todoToogleCompleted} 
+        />
         </div>
         <div className="col-4">
           <TodoForm />

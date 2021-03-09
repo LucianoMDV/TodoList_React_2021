@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ todo, todoDelete, todoToogleCompleted }) => {
+const Todo = ({ todo, todoDelete, todoToogleCompleted, setTodoEdit }) => {
   return (
     <div className="card mt-2">
       <div className="card-body">
@@ -21,7 +21,10 @@ const Todo = ({ todo, todoDelete, todoToogleCompleted }) => {
         <hr />
         <div className="d-flex gap-2">
           <div className="me-auto"></div>
-          <button className="btn btn-sm btn-outline-primary ml-auto">
+          <button 
+            className="btn btn-sm btn-outline-primary ml-auto"
+            onClick={() => setTodoEdit(todo)}
+            >
             Editar
           </button>
           <button 

@@ -27,18 +27,25 @@ const App = () => {
   };
 
   const todoToogleCompleted = (todoId) => {
-    const changedTodos = todos.map((todo) => {
-      const todoEdit = {
-        ...todo,
-        completed: !todo.completed,
-      };
 
-      if (todo.id === todoId) {
-        return todoEdit;
-      } else {
-        return todo;
-      }
-    });
+    // primera manera de hacer el codigo changedTodos
+    // const changedTodos = todos.map((todo) => {
+    //   const todoEdit = {
+    //     ...todo,
+    //     completed: !todo.completed,
+    //   };
+
+    //   if (todo.id === todoId) {
+    //     return todoEdit;
+    //   } else {
+    //     return todo;
+    //   }
+    // });
+
+    //simplificacion de codigo changedTodos
+    const changedTodos = todos.map(todo => (
+        todo.id === todoId ? {...todo, completed: !todo.completed} : todo
+    ));
 
     setTodos(changedTodos);
   };
